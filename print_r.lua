@@ -10,7 +10,7 @@ local function print_r ( t )
                 for i = 1, tLen do
                     local val = t[i]
                     if (type(val)=="table") then
-                        print(indent.."#["..i.."] => "..tostring(t).." {")
+                        print(indent.."#["..i.."] => "..tostring(val).." {")
                         sub_print_r(val,indent..string.rep(" ",string.len(i)+8))
                         print(indent..string.rep(" ",string.len(i)+6).."}")
                     elseif (type(val)=="string") then
@@ -22,7 +22,7 @@ local function print_r ( t )
                 for pos,val in pairs(t) do
                     if type(pos) ~= "number" or math.floor(pos) ~= pos or (pos < 1 or pos > tLen) then
                         if (type(val)=="table") then
-                            print(indent.."["..pos.."] => "..tostring(t).." {")
+                            print(indent.."["..pos.."] => "..tostring(val).." {")
                             sub_print_r(val,indent..string.rep(" ",string.len(pos)+8))
                             print(indent..string.rep(" ",string.len(pos)+6).."}")
                         elseif (type(val)=="string") then
